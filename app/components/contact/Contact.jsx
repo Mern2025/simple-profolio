@@ -66,7 +66,6 @@ const App = () => {
                     </div>
                 </div>
 
-                {/* Left Column: Image (Order 2 on mobile, Order 1 on tablet/desktop) */}
                 <div className="rounded-xl overflow-hidden shadow-2xl shadow-yellow-200/50 order-2 md:order-1">
                     <img 
                         src={CONTACT_IMAGE_URL} 
