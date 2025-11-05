@@ -1,65 +1,90 @@
-import Image from "next/image";
+'use client';
+import React from 'react';
+import working from "@/public/workimg.jpg"
 
-export default function Home() {
+const App = () => {
+
+
+
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center font-['Inter'] p-4 md:p-8">
+      {/* Hero Container with responsive padding and yellow-100 background */}
+      <div 
+        className="relative w-full max-w-7xl h-auto p-6 md:p-12 lg:p-20 rounded-3xl overflow-hidden shadow-2xl bg-yellow-100"
+      >
+        
+        {/* Main Content Grid: Text on the left, Image on the right (responsive ordering) */}
+        {/* Mobile (col-1) puts image first (order-1), then text (order-2). Desktop (lg:col-2) swaps them back. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          {/* Right: Image & Decorations (Mobile Top, Desktop Right) */}
+          <div className="relative flex items-center justify-center h-full min-h-[300px] lg:min-h-[500px] p-4 order-1 lg:order-2">
+            
+            {/* Large White Backdrop Circle (Responsive scaling) */}
+            <div className="absolute w-full h-full bg-white rounded-full transform scale-150 sm:scale-125 lg:scale-125 opacity-70"></div>
+            
+            {/* Top Right Decorative Crosses (Hidden on small mobile screens) */}
+            <div className="absolute top-4 right-4 z-10 transform rotate-12 hidden sm:block">
+              <div className="grid grid-cols-2 gap-2">
+                {/* Changed to indigo-900 for color consistency */}
+                <span className="w-3 h-3 bg-indigo-900 rounded-sm shadow-md"></span>
+                <span className="w-3 h-3 bg-indigo-900 rounded-sm shadow-md"></span>
+                <span className="w-3 h-3 bg-indigo-900 rounded-sm shadow-md"></span>
+                <span className="w-3 h-3 bg-indigo-900 rounded-sm shadow-md"></span>
+              </div>
+            </div>
+            
+            {/* Profile Image Circle Container (Responsive size) */}
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl z-20">
+            <img
+             src={working} 
+             alt="Pen and envelopes for contact" 
+              className="w-full h-auto object-cover"
+              // ... onerror handler
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+              
+              {/* Decorative Dashes (Hidden on small mobile screens) */}
+              <div className="absolute bottom-4 left-0 z-30 transform rotate-45 translate-x-[-70%] hidden sm:block">
+                <div className="flex space-x-3">
+                  <span className="w-5 h-1 bg-indigo-900 rounded-full shadow-md"></span>
+                  <span className="w-5 h-1 bg-indigo-900 rounded-full shadow-md"></span>
+                  <span className="w-5 h-1 bg-indigo-900 rounded-full shadow-md"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Left: Text Content and Button (Mobile Bottom, Desktop Left) */}
+          <div className="flex flex-col space-y-4 lg:space-y-6 z-20 order-2 lg:order-1 text-center lg:text-left">
+            <p className="text-xl md:text-2xl text-gray-800">
+              Hello, I'm Ruhul,
+            </p>
+            
+            <h1 
+              className="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight tracking-tight text-indigo-900" 
+            >
+              Front-End<br/>Developer
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-800 mt-2">
+              based in Creative It Institute.
+            </p>
+
+            {/* Resume Button (Center on mobile, left on desktop) */}
+            <div className='flex justify-center lg:justify-start'>
+                <button 
+                  className="mt-8 px-8 py-4 w-fit text-lg font-semibold rounded-lg border-2 border-indigo-900 shadow-lg transition duration-300 hover:shadow-xl hover:bg-yellow-200 bg-yellow-300 text-indigo-900"
+                  onClick={() => console.log('Resume Clicked')}
+                >
+                  Resume
+                </button>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
-}
+};
+
+export default App;
